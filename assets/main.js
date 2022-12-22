@@ -1,4 +1,4 @@
-const buttonsleft=document.querySelectorAll(".base")
+const buttons=document.querySelectorAll("button")
 const buttonsright=document.querySelectorAll(".symbol")
 const left=document.querySelector(".lefttext")
 const right=document.querySelector(".righttext")
@@ -7,9 +7,8 @@ const secondRate=document.querySelector(".secondRate")
 window.addEventListener("offline",()=>{
     alert("You are not connected to the network.")
 })
-
-buttonsleft.forEach(item=>item.addEventListener("click",(e)=>{
-    const violet=document.querySelectorAll(".base.right.active")
+buttons.forEach(item=>item.addEventListener("click",(e)=>{
+    const violet=document.querySelectorAll(".base.active")
     violet.forEach(item=>item.classList.remove("active"))
     e.target.classList.add("active")
     const base=e.target.innerText
@@ -20,19 +19,16 @@ buttonsleft.forEach(item=>item.addEventListener("click",(e)=>{
         right.value = +left.value * +rate
         left.value = +right.value / +rate
         left.addEventListener("keyup",() =>{
-            right.value = +left.value * +rate
-            
+            right.value = +left.value * +rate        
 })
 right.addEventListener("keyup",() =>{
     left.value = +right.value / +rate
 })
 firstRate.innerText=`1 ${base}=${rate} ${symbol.innerText}`
 secondRate.innerText=`1 ${symbol.innerText}=${1/+rate} ${base}`
-}).catch(err=>alert(err))
-       
+}).catch(err=>alert(err))      
 }))
 document.querySelector(".rub.base.active").click()
-
 buttonsright.forEach(item=>item.addEventListener("click",(e)=>{
     const violet=document.querySelectorAll(".symbol.active")
     violet.forEach(item=>item.classList.remove("active"))
