@@ -30,8 +30,8 @@ secondRate.innerText=`1 ${symbol.innerText}=${1/+rate} ${base}`
 }))
 document.querySelector(".rub.base.active").click()
 buttonsright.forEach(item=>item.addEventListener("click",(e)=>{
-    const violet=document.querySelectorAll(".symbol.active")
-    violet.forEach(item=>item.classList.remove("active"))
+    const violets=document.querySelectorAll(".symbol.active")
+    violets.forEach(item=>item.classList.remove("active"))
     e.target.classList.add("active")
 }))
 
